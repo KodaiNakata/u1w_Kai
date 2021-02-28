@@ -12,3 +12,4 @@ Unity1weekのお題「回」の制作リポジトリです。
 - マウス操作のみ
 
 # 投稿先
+https://unityroom.com/games/naka-ku_bombbattle
