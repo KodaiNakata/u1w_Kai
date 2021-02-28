@@ -35,9 +35,15 @@ public class StartController : MonoBehaviour
         // 左クリックしたとき
         if (Input.GetMouseButtonDown(0) && !isClicked)
         {
-            isClicked = true;
-            audioSource.PlayOneShot(audioSource.clip);
-            StartCoroutine(LoadGameScene());
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
+
+            if (hit2d.collider == null)
+            {
+                isClicked = true;
+                audioSource.PlayOneShot(audioSource.clip, SoundManager.instance.seVolume);
+                StartCoroutine(LoadGameScene());
+            }
         }
     }
 
